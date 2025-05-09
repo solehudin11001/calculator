@@ -1,0 +1,23 @@
+{
+  "name": "typescript-exercises",
+  "version": "1.0.0",
+  "description": "Typescript Exercises",
+  "main": "index.js",
+  "scripts": {
+    "bmi": "ts-node bmiCalculator.ts",
+    "calculateExercises": "ts-node exerciseCalculator.ts",
+    "ts-node": "ts-node"
+  },
+  "keywords": [
+    "learn",
+    "typescript"
+  ],
+  "author": "solehudin",
+  "license": "ISC",
+  "packageManager": "pnpm@10.9.0",
+  "devDependencies": {
+    "@types/node": "^22.15.17",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  }
+}
