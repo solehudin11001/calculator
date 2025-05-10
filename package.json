@@ -6,6 +6,7 @@
   "scripts": {
     "bmi": "ts-node bmiCalculator.ts",
     "calculateExercises": "ts-node exerciseCalculator.ts",
+    "start": "ts-node-dev index.ts",
     "ts-node": "ts-node"
   },
   "keywords": [
@@ -14,10 +15,15 @@
   ],
   "author": "solehudin",
   "license": "ISC",
-  "packageManager": "pnpm@10.9.0",
+  "packageManager": "pnpm@10.10.0",
   "devDependencies": {
+    "@types/express": "^5.0.1",
     "@types/node": "^22.15.17",
     "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
     "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
   }
 }
