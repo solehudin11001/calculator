@@ -5,6 +5,16 @@ interface ValidatedExerciseArgs {
   dailyExerciseHours: number[];
 }
 
+interface TargetDailyExercise {
+  periodLength: number;
+  trainingDays: number;
+  success: boolean;
+  rating: number;
+  ratingDescription: string;
+  target: number;
+  average: number;
+}
+
 const validationExerciseArgs = (args: string[]): ValidatedExerciseArgs => {
   if (args.length < 4) throw new Error("Not enough arguments");
 
@@ -15,28 +25,18 @@ const validationExerciseArgs = (args: string[]): ValidatedExerciseArgs => {
   };
 };
 
-interface TargetDailyExercise {
-  periodLength: number;
-  trainingDays: number;
-  success: boolean;
-  rating: number;
-  ratingDescription: string;
-  target: number;
-  avarage: number;
-}
-
-const calculateExercises = ({
+export const calculateExercises = ({
   targetDailyHours,
   dailyExerciseHours,
 }: ValidatedExerciseArgs): TargetDailyExercise => {
   const periodLength = dailyExerciseHours.length;
   const trainingDays = dailyExerciseHours.filter((d) => !!d).length;
-  const avarage =
+  const average =
     dailyExerciseHours.reduce((prev, curr) => prev + curr, 0) / periodLength;
-  const success = avarage >= targetDailyHours;
-  const rating = Math.round(avarage);
+  const success = average >= targetDailyHours;
+  const rating = Math.round(average);
   const ratingDescription =
-    avarage >= targetDailyHours
+    average >= targetDailyHours
       ? "Good job, keep it up"
       : "Not to bad but could be better";
   const target = targetDailyHours;
@@ -48,7 +48,7 @@ const calculateExercises = ({
     rating,
     ratingDescription,
     target,
-    avarage,
+    average,
   };
 };
 
